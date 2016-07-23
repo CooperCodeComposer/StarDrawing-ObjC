@@ -16,8 +16,6 @@
     CALayer *starLayer;
 }
 
-//@property StarView *starView;
-//@property CALayer *starLayer;
 @property UIView *skyView;
 @property CGFloat angle;
 

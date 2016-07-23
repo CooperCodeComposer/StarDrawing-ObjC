@@ -47,6 +47,7 @@
     [self drawStarWithFrame:CGRectMake(0.0, 0.0, 70.0, 70.0) starColor:[UIColor yellowColor] rotation:0.6];
 }
 
+// method to bounce star when touched
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     

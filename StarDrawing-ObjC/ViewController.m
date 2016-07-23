@@ -29,9 +29,6 @@
     self.skyView.transform = CGAffineTransformMakeTranslation(0, 2000.0);
     
     [self generateRandomStars];
-    
-    // make stars rotate
-    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 
 }
 
@@ -51,6 +48,9 @@
                          
                      }];
     
+    // make stars rotate
+    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    
 }
 
 -(void)generateRandomStars
@@ -67,8 +67,9 @@
         
         starView = [[StarView alloc] initWithFrame:CGRectMake(xRandom, yRandom, 20.0, 20.0)];
         starView.backgroundColor = [UIColor clearColor];
-        starLayer = starView.layer;
+        //starLayer = starView.layer;
         
+
         [self.skyView addSubview:starView];
         
     }
