@@ -30,6 +30,7 @@
     
     [self generateRandomStars];
     
+    // make stars rotate
     [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 
 }
@@ -74,11 +75,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 // add a gradient to the main view background
 -(void)addGradient {
     CAGradientLayer *gradient = [[CAGradientLayer alloc] init];
@@ -94,40 +90,8 @@
 -(void)tick
 {
     self.angle += .1;
-    
     starView.transform = CGAffineTransformMakeRotation(self.angle);
 }
-
-// MARK: Failed alternate attempts for touch recognition on starLayer. Implementation for touch / bounce now in StarView class
-
-//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    UITouch *t = [touches anyObject];
-//    CGPoint thePoint = [t locationInView:self.view];
-//    
-//    thePoint = [[self.starView layer] convertPoint:thePoint toLayer:[[self view] layer]];
-//    
-//    if([[self.starView layer].presentationLayer hitTest:thePoint])
-//    {
-//        NSLog(@"You touched a Shape!");
-//    }
-//    else{
-//        NSLog(@"backgound touched");
-//    }
-//}
-
-//- (IBAction)pressedLayer:(UIGestureRecognizer *)gestureRecognizer {
-//    CGPoint touchPoint = [gestureRecognizer locationInView:[self view]];
-//    
-//    if ([[[self starLayer] presentationLayer] hitTest:touchPoint]) {
-//        [self blinkLayerWithColor:[UIColor orangeColor]];
-//        NSLog(@"TOUCH");
-//    } else if ([[self starLayer] hitTest:touchPoint]) {
-//        [self blinkLayerWithColor:[UIColor redColor]];
-//        NSLog(@"TOUCH STAR");
-//    }
-//}
-
-
 
 
 @end
