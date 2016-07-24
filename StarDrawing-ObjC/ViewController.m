@@ -28,7 +28,6 @@
     // set initial state of skyView off screen
     self.skyView.transform = CGAffineTransformMakeTranslation(0, 2000.0);
     
-    // initialize starViews array
     self.starArray = [[NSMutableArray alloc] init];
     
     [self generateRandomStars];
