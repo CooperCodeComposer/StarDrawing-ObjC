@@ -44,7 +44,21 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    [self drawStarWithFrame:CGRectMake(0.0, 0.0, 70.0, 70.0) starColor:[UIColor yellowColor] rotation:0.6];
+    [self drawStarWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0) starColor:[UIColor yellowColor] rotation:0.6];
+}
+
+// instance method to make star rotate
+-(void)makeStarRotate
+{
+    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    
+}
+
+// method used in NSTimer for makeStarRotate
+-(void)tick
+{
+    self.angle += .1;
+    self.transform = CGAffineTransformMakeRotation(self.angle);
 }
 
 // method to bounce star when touched
@@ -106,14 +120,5 @@
      */
     
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

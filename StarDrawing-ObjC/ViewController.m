@@ -28,7 +28,12 @@
     // set initial state of skyView off screen
     self.skyView.transform = CGAffineTransformMakeTranslation(0, 2000.0);
     
+    // initialize starViews array
+    self.starArray = [[NSMutableArray alloc] init];
+    
     [self generateRandomStars];
+    
+    [self addStarsToSky];
 
 }
 
@@ -48,11 +53,9 @@
                          
                      }];
     
-    // make stars rotate
-    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    
 }
 
+// method to generate star Views with random positions
 -(void)generateRandomStars
 {
     CGFloat xRandom = 0;
@@ -67,13 +70,22 @@
         
         starView = [[StarView alloc] initWithFrame:CGRectMake(xRandom, yRandom, 20.0, 20.0)];
         starView.backgroundColor = [UIColor clearColor];
-        //starLayer = starView.layer;
         
-
-        [self.skyView addSubview:starView];
+        // make star rotate
+        [starView makeStarRotate];
+        
+        [self.starArray addObject:(starView)];
         
     }
-    
+}
+
+// method to add stars from array to skyView
+-(void)addStarsToSky
+{
+    for (int i = 0; i < (self.starArray.count - 1); i++) {
+        
+        [self.skyView addSubview:self.starArray[i]];
+    }
 }
 
 // add a gradient to the main view background
@@ -86,12 +98,6 @@
                        nil];
     gradient.frame = self.view.frame;
     [self.view.layer insertSublayer:gradient atIndex:0];
-}
-
--(void)tick
-{
-    self.angle += .1;
-    starView.transform = CGAffineTransformMakeRotation(self.angle);
 }
 
 

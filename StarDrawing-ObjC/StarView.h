@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface StarView : UIView
+-(void)makeStarRotate;
 
 @property CALayer *starLayer;
+@property CGFloat angle;
 
 @end

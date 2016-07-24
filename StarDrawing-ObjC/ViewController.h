@@ -13,11 +13,10 @@
 @interface ViewController : UIViewController
 {
     StarView *starView;
-    CALayer *starLayer;
 }
 
 @property UIView *skyView;
-@property CGFloat angle;
+@property (nonatomic, strong) NSMutableArray *starArray;
 
 @end
 
