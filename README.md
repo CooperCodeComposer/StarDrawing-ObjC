@@ -9,7 +9,7 @@ Add demo using Core Animation and drawing with UIBezierPath
 + gradient background with CAGradientLayer
 + touch each star to trigger bouncing with CAKeyframeAnimation
 
-![Alt text](/StarDrawingSS.PNG?raw=true "")
+![Alt text](/StarDrawingSS.png?raw=true "")
 
 # Author
 Alistair Cooper
