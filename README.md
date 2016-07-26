@@ -1,5 +1,5 @@
 # StarDrawing-ObjC
-Add demo using Core Animation and drawing with UIBezierPath
+App demo using Core Animation and drawing with UIBezierPath
 
 - Xcode 7.3
 
